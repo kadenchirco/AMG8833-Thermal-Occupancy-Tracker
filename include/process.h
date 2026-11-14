@@ -29,7 +29,7 @@ private:
     uint8_t interp_size_x = 32;
     uint8_t interp_size_y = 32;
 
-    float threshold = 2.5;
+    float threshold = 6.5;
     size_t min_blob_size = 4;
     float max_blob_distance = 15;
     uint8_t max_unmatched_frames = 5;

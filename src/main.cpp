@@ -108,6 +108,14 @@ void loop() {
   // pixels are now degrees above the background instead of absolute temps
   for (int i = 0; i < AMG88xx_PIXEL_ARRAY_SIZE; i++) {
     pixels[i] -= background[i];
+
+    // clamp first: squaring a cold spot (negative) would flip it into a fake hot spot
+    if (pixels[i] < 0) {
+      pixels[i] = 0;
+    }
+
+    // lets make it quadratic!! should help differentiating blobs :D
+    pixels[i] *= pixels[i];
   }
 
   // for (int row = 0; row < 8; row++) {
